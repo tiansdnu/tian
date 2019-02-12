@@ -1,0 +1,22 @@
+select stu.id,col.name,cla.name,stu.name,stu.gender,stu.country,stu.province,stu.city,stu.mobile,stu.number,pay.payment_fee,
+pay.payment_type,app.apply_description,app.apply_status,stu.created_at,stu.updated_at from  students  stu 
+inner join term_classes cla on stu.class_id=cla.id  and  stu.term_id=11 and stu.is_dismiss='false'
+inner join term_colleges col on cla.college_id=col.id
+inner join student_pay pay on stu.id=pay.student_id
+inner join approve app  on stu.id=app.student_id and app.apply_type=1
+order by  col.name
+
+--类型1 除名
+
+
+
+
+select stu.id,col.name,cla.name,stu.name,stu.gender,stu.country,stu.province,stu.city,stu.mobile,stu.number,pay.payment_fee,
+pay.payment_type,app.apply_description,app.apply_status,stu.created_at,stu.updated_at from  students  stu 
+inner join term_classes cla on stu.class_id=cla.id  and  stu.term_id=11  and stu.is_dismiss<>'false'
+inner join term_colleges col on cla.college_id=col.id
+inner join student_pay pay on stu.id=pay.student_id
+inner join approve app  on stu.id=app.student_id  and app.apply_type=7
+order by  col.name
+
+--类型7 警告
